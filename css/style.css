@@ -16,7 +16,6 @@
 .inner {
   max-width: 1680px;
   width: 95%;
-  background-color: rgba(201, 201, 255, 0.2);
   margin: 0 auto;
 }
 
@@ -251,6 +250,13 @@ header {
 /* ㅡㅡㅡ main ㅡㅡㅡ */
 
 /* 상단 페이드베너 */
+main {
+  background-color: rgba(201, 201, 255, 0.2);
+  .section-wrap {
+    padding-bottom: 16rem;
+  }
+}
+
 .main-slider-wrap {
   position: relative;
 
@@ -401,18 +407,15 @@ header {
 /* 본문 */
 /* Shop by Category */
 .container {
-  margin-top: 16rem;
   .section-title {
     color: var(--main-color);
     text-align: center;
     font-size: 6rem;
     margin-bottom: 6rem;
-    margin-top: 6rem;
   }
 
   .category-wrap {
-    margin: 0 0 16rem;
-
+    padding-top: 16rem;
     .category-list {
       display: flex;
       gap: 4rem;
@@ -515,6 +518,7 @@ header {
 
 /* love-by-wrap */
 .love-by-wrap {
+  padding-top: 8rem;
   .loved-by-list-top,
   .loved-by-list-bottom {
     display: flex;
@@ -533,8 +537,9 @@ header {
         z-index: 900;
       }
     }
-    & .loved-by-list-top {
+    &.loved-by-list-top {
       margin-bottom: 100px;
+      padding-top: 8rem;
 
       .number {
         color: var(--main-color);
@@ -543,19 +548,42 @@ header {
   }
 
   .more-btn {
-    border: 1px solid red;
-    margin-top: 12rem;
+    margin: 12rem 0;
 
     a {
       display: inline-block;
       width: fit-content;
-      background: var(--main-color);
       display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+
+      background: var(--main-color);
       color: #fff;
+
       margin: 0 auto;
+      padding: 16px 28px;
+      border-radius: 40px;
 
       .hover-wrap {
-        border: 1px solid;
+        overflow: hidden;
+        span {
+          font-size: 2rem;
+          transform: translateY(0px);
+          display: inline-block;
+          position: relative;
+          transition: ease 0.3s;
+
+          &::after {
+            content: 'More';
+            position: absolute;
+            bottom: -28px;
+            left: 0;
+          }
+        }
+      }
+      &:hover .hover-wrap span {
+        transform: translateY(-28px);
       }
     }
   }
