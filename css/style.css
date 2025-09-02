@@ -22,6 +22,7 @@
 
 :is(.text-box) {
   margin-top: 10px;
+  padding: 0 16px;
 
   p {
     width: 100%;
@@ -252,6 +253,7 @@ header {
 /* 상단 페이드베너 */
 .main-slider-wrap {
   position: relative;
+
   .main-slider {
     position: relative;
 
@@ -451,11 +453,16 @@ header {
   .make-your {
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a08be0+0,4695d6+51,95a9e5+98 */
     background: linear-gradient(
-      to bottom,
-      #a08be0 0%,
-      #4695d6 51%,
-      #95a9e5 98%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      135deg,
+      rgba(236, 211, 211, 1) 0%,
+      rgba(209, 217, 228, 1) 20%,
+      rgba(226, 212, 177, 1) 40%,
+      rgba(209, 228, 212, 1) 60%,
+      rgba(202, 176, 231, 1) 80%,
+      rgba(151, 233, 206, 1) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
 
     .img-box {
       padding: 20px 0;
@@ -490,6 +497,9 @@ header {
         font-size: 6rem;
         margin: 20px 0 50px;
         text-shadow: 0 20px 13px rgba(0, 0, 0, 0.3);
+      }
+
+      .explication {
       }
 
       .shop-now-btn {
@@ -534,6 +544,20 @@ header {
 
   .more-btn {
     border: 1px solid red;
+    margin-top: 12rem;
+
+    a {
+      display: inline-block;
+      width: fit-content;
+      background: var(--main-color);
+      display: flex;
+      color: #fff;
+      margin: 0 auto;
+
+      .hover-wrap {
+        border: 1px solid;
+      }
+    }
   }
 }
 
@@ -771,3 +795,64 @@ header {
 }
 
 /* ㅡㅡㅡ footer ㅡㅡㅡ */
+footer {
+  background: #b59274;
+  padding: 50px 0;
+}
+.footer-top,
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  gap: 200px;
+}
+.company-info h2 {
+  font-size: 1rem;
+}
+.company-info address {
+  width: 900px;
+  font-size: 12px;
+  margin: 20px 0 0;
+  line-height: 1.8;
+}
+
+.company-info address span {
+  margin-right: 20px;
+}
+.footer-menu {
+  display: flex;
+  /* 자식들이 넘칠 떄 아래로 떨어지도록 */
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  column-gap: 50px;
+  margin-right: 20px;
+}
+.footer-menu > li {
+  width: 30%;
+}
+
+.footer-bottom {
+  margin-top: 100px;
+}
+
+.sns-list {
+  display: flex;
+  align-items: center;
+}
+.sns-list > li {
+}
+.sns-list > .es-mark img {
+  height: 32px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
