@@ -15,8 +15,80 @@
 
 .inner {
   max-width: 1680px;
+  width: 95%;
   background-color: rgba(201, 201, 255, 0.2);
   margin: 0 auto;
+}
+
+:is(.text-box) {
+  margin-top: 10px;
+
+  p {
+    width: 100%;
+    font-weight: 500;
+  }
+  .price-wrap {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+
+    .price {
+      display: flex;
+      gap: 6px;
+      flex-grow: 1;
+
+      span {
+        color: #9a9a9a;
+        text-decoration: line-through;
+      }
+    }
+
+    .sale {
+      color: var(--main-color);
+      font-weight: 600;
+      width: fit-content;
+    }
+  }
+
+  .add-cart {
+    margin-top: 8px;
+    text-decoration: underline;
+    font-weight: 700;
+    display: inline-block;
+  }
+}
+
+:is(.img-hover-box) {
+  position: relative;
+  border-radius: 3rem;
+  overflow: hidden;
+
+  .hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: ease 0.3s;
+  }
+
+  &:hover .hover-img {
+    opacity: 1;
+  }
+
+  .heart-icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 32px;
+    height: 32px;
+    background: url(../img/heart.png) no-repeat;
+    cursor: pointer;
+
+    &.active {
+      background: url(../img/heart-hover.png) no-repeat;
+    }
+  }
 }
 
 /* ㅡㅡㅡ header ㅡㅡㅡ */
@@ -37,10 +109,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  img {
-    /* display: block; */
-  }
 }
 
 .header-left {
@@ -250,6 +318,7 @@ header {
           background: #fff;
           position: relative;
           overflow: hidden;
+          width: fit-content;
 
           a {
             font-size: 2rem;
@@ -330,11 +399,13 @@ header {
 /* 본문 */
 /* Shop by Category */
 .container {
+  margin-top: 16rem;
   .section-title {
     color: var(--main-color);
     text-align: center;
     font-size: 6rem;
     margin-bottom: 6rem;
+    margin-top: 6rem;
   }
 
   .category-wrap {
@@ -370,7 +441,7 @@ header {
 
 /* Make Your Own */
 .make-your-wrap {
-  background: #9a9a9a;
+  /* background: #9a9a9a; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -434,10 +505,167 @@ header {
 
 /* love-by-wrap */
 .love-by-wrap {
+  .loved-by-list-top,
+  .loved-by-list-bottom {
+    display: flex;
+    gap: 4rem;
+
+    .loved {
+      position: relative;
+      margin-bottom: 4rem;
+
+      .number {
+        font-size: 6.4rem;
+        font-weight: 700;
+        position: absolute;
+        transform: translate(0, -50%);
+        left: 20px;
+        z-index: 900;
+      }
+    }
+    & .loved-by-list-top {
+      margin-bottom: 100px;
+
+      .number {
+        color: var(--main-color);
+      }
+    }
+  }
+
+  .more-btn {
+    border: 1px solid red;
+  }
 }
 
 /* new-in-wrap" */
 .new-in-wrap {
+  background: rgb(141, 182, 243);
+  padding-top: 10rem;
+
+  .inner {
+    position: relative;
+    background: transparent;
+
+    .section-title {
+      text-align: start;
+      font-size: 5.6rem;
+      color: #01a799;
+      margin-bottom: 1px;
+    }
+
+    .section-sub-title {
+      color: #fff;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .line-text {
+      font-size: 10rem;
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+      color: rgb(141, 182, 243);
+      font-weight: 700;
+    }
+
+    .img-box {
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      transform: translate(0%, -50%);
+
+      img {
+        max-width: 800px;
+      }
+    }
+
+    strong {
+      margin-top: 8rem;
+      font-size: 3rem;
+      display: inline-block;
+      color: #fff;
+    }
+
+    .info-title {
+      color: #fff;
+      line-height: 1.6;
+      margin-top: 1.2rem;
+    }
+
+    .shop-now-btn {
+      display: inline-block;
+      margin-top: 200px;
+      margin-bottom: 120px;
+
+      a {
+        border: 1px solid #fff;
+        color: #fff;
+        font-size: 2rem;
+        width: 600px;
+        display: inline-block;
+        text-align: center;
+        padding: 15px 40px;
+        border-radius: 40px;
+
+        .hover-wrap {
+          overflow: hidden;
+          display: inline-block;
+
+          .shop-now {
+            /* overflow: hidden; */
+            position: relative;
+            display: inline-block;
+            padding: 0 4px;
+            transform: translateY(0px);
+            transition: ease 0.3s;
+
+            &::after {
+              content: 'Shop Now';
+              position: absolute;
+              bottom: -30px;
+              left: 0;
+              padding: 0 4px;
+            }
+          }
+        }
+
+        &:hover .shop-now {
+          transform: translateY(-30px);
+        }
+      }
+    }
+
+    .arrow-btn {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      padding-bottom: 40px;
+
+      li {
+        background: #fff;
+        border-radius: 40px;
+
+        a {
+          display: flex;
+          padding: 12px 28px;
+
+          img {
+            width: 28px;
+            height: 24px;
+            transform: translateX(0px);
+            transition: ease-in 0.4s;
+          }
+        }
+
+        &.left:hover a img {
+          transform: translateX(-8px);
+        }
+
+        &.right:hover a img {
+          transform: translateX(8px);
+        }
+      }
+    }
+  }
 }
 
 /* summer-sorted-wrap */
@@ -479,27 +707,13 @@ header {
     display: flex;
     gap: 4rem;
     margin-top: 40px;
+    width: 97%;
+    margin-left: 3%;
 
-    .img-box {
-      position: relative;
-      border-radius: 3rem;
-      overflow: hidden;
-
-      .hover-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: ease 0.3s;
-      }
-
-      &:hover .hover-img {
-        opacity: 1;
-      }
-
-      .heart-icon {
-        border: 1px solid red;
-      }
+    .text-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
   }
 }
@@ -550,28 +764,6 @@ header {
           width: 35%;
           border-radius: 20px;
           background: #fff;
-        }
-
-        .text-box {
-          p {
-            width: 100%;
-            font-weight: 500;
-          }
-          .price-wrap {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-
-            .sale {
-              color: var(--main-color);
-              font-weight: 600;
-            }
-
-            span {
-              color: #9a9a9a;
-              text-decoration: line-through;
-            }
-          }
         }
       }
     }
